@@ -1,0 +1,5 @@
+I have an excel file with two columns ("Billing Document" and " Customer Name"),
+and folder full of PDF documents containing the billing document number in their filenames.
+This script compares all these filenames with the excel file and finds the Customer Name
+corresponding to the PDF. Then it moves the PDF to a new directory named with the Customer Name.
+This code doesn't work without proper files. Sensitive data was changed.
