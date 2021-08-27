@@ -18,12 +18,15 @@ to = ['email_receiver1@mail.com', 'email_receiver2@mail.com']
 path = 'C:/Users/dalecb/Desktop/Invoices/'
 folders = os.listdir(path)
 
-for customer in folders:
-    customer_invoices = os.listdir(path + customer)
-    customer_invoices = [path + customer + '/' + file for file in customer_invoices]
-    subject = customer + ' Invoices'
-    content = ''
-    with yagmail.SMTP(user, app_password) as yag:
-        yag.send(to, subject, content, attachments=customer_invoices)
-    print('Email successfully sent with title ' + subject)
-    time.sleep(20)
+def send_emails():
+    for customer in folders:
+        customer_invoices = os.listdir(path + customer)
+        customer_invoices = [path + customer + '/' + file for file in customer_invoices]
+        subject = customer + ' Invoices'
+        content = ''
+        with yagmail.SMTP(user, app_password) as yag:
+            yag.send(to, subject, content, attachments=customer_invoices)
+        print('Email successfully sent with title ' + subject)
+        time.sleep(20)
+
+send_emails()
